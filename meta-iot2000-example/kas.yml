@@ -12,9 +12,9 @@ repos:
     layers:
       meta-iot2000-example:
 
-  meta-nodejs:
-    url: https://github.com/ninox92/meta-nodejs
-    refspec: 7e90d506488036cf1c490d1ac1086675eb2805b6
+  meta-qt5:
+    url: https://codereview.qt-project.org/yocto/meta-qt5
+    refspec: 000ffe6066219e749c95269dd72edb9b662d4b63
 
   meta-openembedded:
     layers:

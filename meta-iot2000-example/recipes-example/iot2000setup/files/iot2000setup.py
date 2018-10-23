@@ -490,7 +490,7 @@ class SoftwareSettings:
 	def changePackages(self):
 		### Edit here ###
 		# Contains all potential candidates for removal
-		packageList = ["galileo-target", "nodejs", "tcf-agent"]
+		packageList = ["galileo-target", "tcf-agent"]
 		###
 		
 		bb = ButtonBar(self.topmenu.gscreen, (("Ok", "ok"), ("Cancel", "cancel")))
