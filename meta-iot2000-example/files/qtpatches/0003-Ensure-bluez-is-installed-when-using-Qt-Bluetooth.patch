@@ -1,0 +1,25 @@
+From acb0f0a58c45b144c08d2e5ec26236e25f9b8220 Mon Sep 17 00:00:00 2001
+From: Maurice Kalinowski <maurice.kalinowski@qt.io>
+Date: Wed, 24 Oct 2018 09:53:30 +0200
+Subject: [PATCH 3/3] Ensure bluez is installed when using Qt Bluetooth
+
+---
+ recipes-qt/qt5/qtconnectivity_git.bb | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/recipes-qt/qt5/qtconnectivity_git.bb b/recipes-qt/qt5/qtconnectivity_git.bb
+index 66494d2..a2c5324 100644
+--- a/recipes-qt/qt5/qtconnectivity_git.bb
++++ b/recipes-qt/qt5/qtconnectivity_git.bb
+@@ -14,6 +14,8 @@ DEPENDS += "qtbase qtdeclarative"
+ 
+ inherit bluetooth
+ 
++REQUIRED_DISTRO_FEATURES = "bluez"
++
+ PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth', 'bluez', '', d)}"
+ PACKAGECONFIG[bluez] = "-feature-bluez,-no-feature-bluez,${BLUEZ}"
+ 
+-- 
+2.17.1
+

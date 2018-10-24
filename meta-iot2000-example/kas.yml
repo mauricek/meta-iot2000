@@ -15,6 +15,16 @@ repos:
   meta-qt5:
     url: https://codereview.qt-project.org/yocto/meta-qt5
     refspec: 000ffe6066219e749c95269dd72edb9b662d4b63
+    patches:
+      0001:
+        repo: meta-iot2000
+        path: meta-iot2000-example/files/qtpatches/0001-Add-rocko-compat-layer.patch
+      0002:
+        repo: meta-iot2000
+        path: meta-iot2000-example/files/qtpatches/0002-Apply-changes-to-qtbase.patch
+      0003:
+        repo: meta-iot2000
+        path: meta-iot2000-example/files/qtpatches/0003-Ensure-bluez-is-installed-when-using-Qt-Bluetooth.patch
 
   meta-openembedded:
     layers:

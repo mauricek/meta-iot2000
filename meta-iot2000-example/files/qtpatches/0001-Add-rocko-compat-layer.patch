@@ -1,0 +1,26 @@
+From a870e716d537ef45e23b0c12fb27744669ae08e1 Mon Sep 17 00:00:00 2001
+From: Maurice Kalinowski <maurice.kalinowski@qt.io>
+Date: Wed, 24 Oct 2018 09:49:50 +0200
+Subject: [PATCH 1/3] Add rocko compat layer
+
+Iot2000 uses rocko
+---
+ conf/layer.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/conf/layer.conf b/conf/layer.conf
+index 12b2d6a..ef1f922 100644
+--- a/conf/layer.conf
++++ b/conf/layer.conf
+@@ -29,7 +29,7 @@ LAYERVERSION_qt5-layer = "1"
+ 
+ LAYERDEPENDS_qt5-layer = "core"
+ 
+-LAYERSERIES_COMPAT_qt5-layer = "sumo thud"
++LAYERSERIES_COMPAT_qt5-layer = "rocko sumo thud"
+ 
+ LICENSE_PATH += "${LAYERDIR}/licenses"
+ 
+-- 
+2.17.1
+

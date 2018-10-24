@@ -1,0 +1,46 @@
+From 778aa6b605a8855ef40beba2fe46b71e6aff6d41 Mon Sep 17 00:00:00 2001
+From: Maurice Kalinowski <maurice.kalinowski@qt.io>
+Date: Wed, 24 Oct 2018 09:51:32 +0200
+Subject: [PATCH 2/3] Apply changes to qtbase
+
+- the iot2000 does not have a graphical output, hence disable
+  x11 and kde items.
+- the compiler detection does not work properly when "cross-
+  compiling" for x86. Disable all CPU features explicitly.
+---
+ recipes-qt/qt5/qtbase_git.bb | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/recipes-qt/qt5/qtbase_git.bb b/recipes-qt/qt5/qtbase_git.bb
+index b563684..c92d5de 100644
+--- a/recipes-qt/qt5/qtbase_git.bb
++++ b/recipes-qt/qt5/qtbase_git.bb
+@@ -61,8 +61,6 @@ LDFLAGS_append_x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -f
+ # separate some parts of PACKAGECONFIG which are often changed
+ PACKAGECONFIG_GL ?= "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'gl', '', d)}"
+ PACKAGECONFIG_FB ?= "${@bb.utils.contains('DISTRO_FEATURES', 'directfb', 'directfb', '', d)}"
+-PACKAGECONFIG_X11 ?= "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'xcb xcb-xinput glib xkb xkbcommon-evdev', '', d)}"
+-PACKAGECONFIG_KDE ?= "${@bb.utils.contains('DISTRO_FEATURES', 'kde', 'sm cups fontconfig kms gbm libinput', '', d)}"
+ PACKAGECONFIG_FONTS ?= ""
+ PACKAGECONFIG_SYSTEM ?= "jpeg libpng zlib"
+ PACKAGECONFIG_DISTRO ?= ""
+@@ -81,8 +79,6 @@ PACKAGECONFIG ?= " \
+     ${PACKAGECONFIG_OPENSSL} \
+     ${PACKAGECONFIG_GL} \
+     ${PACKAGECONFIG_FB} \
+-    ${PACKAGECONFIG_X11} \
+-    ${PACKAGECONFIG_KDE} \
+     ${PACKAGECONFIG_FONTS} \
+     ${PACKAGECONFIG_SYSTEM} \
+     ${PACKAGECONFIG_DISTRO} \
+@@ -205,6 +201,7 @@ do_configure() {
+         -hostdatadir ${OE_QMAKE_PATH_HOST_DATA} \
+         -platform ${OE_QMAKE_PLATFORM_NATIVE} \
+         -xplatform ${XPLATFORM} \
++        --no-feature-std-atomic64 --no-feature-sse2 --no-feature-x86SimdAlways --no-feature-rdrnd \
+         ${QT_CONFIG_FLAGS}
+ }
+ 
+-- 
+2.17.1
+
