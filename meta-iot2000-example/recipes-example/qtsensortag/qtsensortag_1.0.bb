@@ -16,11 +16,11 @@ S = "${WORKDIR}/git/tradeshow/iot-sensortag"
 require recipes-qt/qt5/qt5.inc
 
 do_install() {
-    install -d ${D}${bindir}
-    install -m 0755 ${B}/SensorTagDemo ${D}${bindir}/SensorTagDemo
+    install -d ${D}${sbindir}
+    install -m 0755 ${B}/SensorTagDemo ${D}${sbindir}
 }
 
 FILES_${PN} += " \
-        ${bindir}/SensorTagDemo \
+        ${sbindir}/SensorTagDemo \
 "
 
