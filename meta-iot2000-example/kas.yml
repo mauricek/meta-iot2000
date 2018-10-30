@@ -25,6 +25,9 @@ repos:
       0003:
         repo: meta-iot2000
         path: meta-iot2000-example/files/qtpatches/0003-Ensure-bluez-is-installed-when-using-Qt-Bluetooth.patch
+      0003:
+        repo: meta-iot2000
+        path: meta-iot2000-example/files/qtpatches/0004-Disable-x86-check-on-declarative.patch
 
   meta-openembedded:
     layers:
