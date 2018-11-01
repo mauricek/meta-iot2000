@@ -29,11 +29,22 @@ repos:
         repo: meta-iot2000
         path: meta-iot2000-example/files/qtpatches/0004-Disable-x86-check-on-declarative.patch
 
+  meta-virtualization:
+    url: https://git.yoctoproject.org/git/meta-virtualization
+    refspec: b704c689b67639214b9568a3d62e82df27e9434f
+
   meta-openembedded:
     layers:
       meta-networking:
       meta-python:
+      meta-filesystems:
 
 local_conf_header:
   package_ipk: |
     PACKAGE_CLASSES = "package_ipk"
+  docker: |
+      IMAGE_INSTALL_append = " docker"
+  iasl-native: |
+      PREFERRED_PROVIDER_iasl-native = "acpica-native"
+  iasl: |
+      PREFERRED_PROVIDER_iasl = "acpica"

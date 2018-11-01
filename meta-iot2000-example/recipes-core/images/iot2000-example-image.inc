@@ -44,4 +44,3 @@ IMAGE_INSTALL_append = " qtimageformats qtquickcontrols qtquickcontrols2 qtscxml
 IMAGE_INSTALL_append = " qtsvg qttools qtwebsockets qtwebglplugin qtxmlpatterns"
 IMAGE_INSTALL_append = " qtmqtt"
 IMAGE_INSTALL_append = " qtsensortag"
-
