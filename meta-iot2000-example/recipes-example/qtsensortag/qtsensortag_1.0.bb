@@ -11,7 +11,7 @@ require recipes-qt/qt5/qt5.inc
 DEPENDS += "qtdeclarative qtgraphicaleffects qtcharts qtconnectivity qtmqtt qtquickcontrols qtquickcontrols2"
 PACKAGECONFIG ?= "qtquickcompiler"
 
-SRCREV = "80dc774b966adf069e84d9777b27886f357a1bb5"
+SRCREV = "3f1e26264634057147dd77fbf427c1777b86ba29"
 QT_GIT_PROJECT = "qt-apps"
 SRC_URI = "git://code.qt.io/qt-apps/boot2qt-demos.git;branch=5.12"
 
